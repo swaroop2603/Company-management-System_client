@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './login.css' 
+import styles from './login.css'  
 import user_icon from '../assests/person.png'
 import email_icon from '../assests/email.png'
 import password_icon from '../assests/password.png'
