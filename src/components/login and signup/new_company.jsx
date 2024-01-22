@@ -5,6 +5,7 @@ import email_icon from '../assests/email.png'
 import password_icon from '../assests/password.png'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import BASE_URL from "../../config";
 const New_Company =()=>{
     
     const navigate=useNavigate()
@@ -28,7 +29,7 @@ const New_Company =()=>{
             
             const response=await axios({
                 method:'post',
-                url:"http://localhost:5000/CMS/company",
+                url:`${BASE_URL}/CMS/company`,
                 data: requestData_company,
             });
             console.log(response.data)
@@ -42,7 +43,7 @@ const New_Company =()=>{
             console.log("username",user_name)
             const employees_response=await axios({
                 method:'post',
-                url:"http://localhost:5000/CMS/employees",
+                url:`${BASE_URL}/CMS/employees`,
                 data: requestdata_employees,
             });
             console.log(employees_response.data)
@@ -54,7 +55,7 @@ const New_Company =()=>{
             }
             const response_owners=await axios({
                 method:'post',
-                url:"http://localhost:5000/CMS/owners",
+                url:`${BASE_URL}/CMS/owners`,
                 data:requestData_owners
             })
 

@@ -6,7 +6,8 @@
   }
   
   .message_header {
-    font-size: 50px;
+    font-size: 30px;
+    font-weight: bold;
     background-color: aliceblue;
     height: 10%;
     border-bottom: 1px solid blue;
@@ -61,4 +62,10 @@
   .message_input button:hover {
     background-color: #45a049;
   }
-  
+  .messages_scrolltobottom{
+    
+      /* padding: 5% 0; */
+      overflow: auto;
+      flex: auto;
+    
+  }

@@ -5,6 +5,7 @@ import email_icon from '../assests/email.png'
 import password_icon from '../assests/password.png'
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+import BASE_URL from "../../config";
 const LoginSignup =()=>{
     const navigate = useNavigate();
 
@@ -25,7 +26,7 @@ const LoginSignup =()=>{
     try{
         const response=await axios({
             method:'post',
-            url:"http://localhost:5000/CMS/employees",
+            url:`${BASE_URL}/CMS/employees`,
             data: data
 
         });
