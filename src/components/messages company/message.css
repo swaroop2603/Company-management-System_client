@@ -5,10 +5,13 @@
     flex-direction: column;
   }
   
-.message_header_company img {
+
+.messages_company_icons{
   width: 30px; /* Set the desired width */
   height: 30px; /* Set the desired height */
   cursor: pointer; /* Add this to make it look like a button */
+  margin-right: 15px;
+
 }
   .message_header_company {
     font-size: 30px;

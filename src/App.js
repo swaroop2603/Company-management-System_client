@@ -4,6 +4,8 @@ import { BrowserRouter as Router,Route,Routes } from 'react-router-dom';
 import Login from './components/login and signup/login'
 import New_Company from './components/login and signup/new_company';
 import Homepage from './components/home/homepage';
+import Invitation from './components/invitation/invitation';
+import Reset from './components/password reset/reset';
 function App() {
   return (
     <div>
@@ -12,6 +14,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/create-company" element={<New_Company />} />
       <Route path='/home' element={<Homepage />} />
+      <Route path="/invite" element={<Invitation />} />
+      <Route path="/reset" element={<Reset />} />
       </Routes>
       </Router>
     </div>

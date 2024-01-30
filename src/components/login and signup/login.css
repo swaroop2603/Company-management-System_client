@@ -36,8 +36,9 @@
     margin-bottom: 15px;
   }
   
-  img {
+  .img {
     width: 20px;
+    color: rgba(150, 150, 150, 1);
     margin-right: 10px;
   }
   

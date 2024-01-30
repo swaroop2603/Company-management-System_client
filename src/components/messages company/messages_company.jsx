@@ -7,9 +7,11 @@ import Modal from "react-modal";
 import ScrollToBottom from "react-scroll-to-bottom";
 import BASE_URL from "../../config";
 import MessageBar_company from "../Message company/message_company";
-import user_add from "../assests/user_add.png"
-import number_of_users from "../assests/total-number-2-256.png"
-import leave from "../assests/leave.webp"
+
+import { FaUserPlus } from "react-icons/fa";
+import { BsBoxArrowRight } from "react-icons/bs";
+ 
+import { FaUsers } from "react-icons/fa";
 let socket
 const modalStyles = {
     content: {
@@ -158,8 +160,6 @@ const addintochannel=async(user_id,company_id,Channel_Id,username)=>{
        setMessages((prevMessages) => [...prevMessages, message]);
     });
  }, [socket, setMessages]);
-
-
     const handlesend=async(event)=>{
     try{
         console.log("sending")
@@ -202,10 +202,10 @@ const addintochannel=async(user_id,company_id,Channel_Id,username)=>{
              { channelName}
              
              <div className="user-dropdown">
-             <img src={number_of_users} alt="NewDropdown"  onClick={handleNewDropdownToggle}/>
-          <img src={user_add} alt="User" onClick={handleDropdownToggle} />
-          <img src={leave}  onClick={handleLeaveIconClick} />
-         
+              <FaUsers className="messages_company_icons" onClick={handleNewDropdownToggle}/>
+            <FaUserPlus className="messages_company_icons" onClick={handleDropdownToggle}/>
+          <BsBoxArrowRight className="messages_company_icons"  onClick={handleLeaveIconClick}/>
+          
           {isDropdownOpen && (
             <div className="dropdown-menu">
             {dropdownlist.map((user, index) => (
