@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './message.css';
-import ReactEmoji from "react-emoji";
+
 import axios from "axios";
 import BASE_URL from "../../config";
 
