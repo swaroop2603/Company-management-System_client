@@ -36,14 +36,14 @@ function MessageBar({ message: { user_id, message, created_at }, name, ownername
       <div className="messageContainer justifyEnd">
         <p className="sendText pr-10">{ownername}</p>
         <div className="messageBox backgroundBlue">
-          <p className="messageText colorWhite">{ReactEmoji.emojify(message)}</p>
+          <p className="messageText colorWhite">{message}</p>
           <p className="messageTime colorWhite">{formatTime(created_at)}</p>
         </div>
       </div>
     ) : (
       <div className="messageContainer justifyStart">
         <div className="messageBox backgroundLight">
-          <p className="messageText colorDark">{ReactEmoji.emojify(message)}</p>
+          <p className="messageText colorDark">{message}</p>
           <p className="messageTime colorDark">{formatTime(created_at)}</p>
         </div>
         <p className="sendText pl-10">{trimmedName}</p>
