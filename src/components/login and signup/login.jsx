@@ -32,9 +32,18 @@ const LoginSignup = () => {
            
            
             navigate('/home', { state: { user: response.data } });
+            console.log("hello")
         } catch (error) {
-            console.log(error);
-            if (error.response.data) {
+            // console.log(error);
+           
+            if (axios.isAxiosError(error) && !error.response) {
+                // Handle network errors
+                setErrorMessage('Network error occurred. Please try again later.');
+                setTimeout(() => {
+                    setErrorMessage('');
+                }, 2000);
+            }
+            else if (error.response.data) {
                 setErrorMessage(error.response.data.error);
                 setTimeout(() => {
                     setErrorMessage('');

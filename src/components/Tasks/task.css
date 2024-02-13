@@ -1,0 +1,318 @@
+.task_container_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    width: 100%;
+   
+
+  }
+
+
+  .task_status {
+    height: 100%;
+    width: 80%;
+    /* padding: 10px; */
+    background-color: aqua;
+    overflow: auto;
+  }
+  .task_container_main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .task_container_menu {
+    width: 20%;
+    background-color: #3498db; 
+    /* padding: 10px; */
+    /* border-radius: 10px; 
+    box-shadow: 0 0 10px ; */
+    height: 100%;
+  }
+  
+  .menu_button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    /* margin-bottom: 8px; */
+    background-color: #2c3e50;  
+    color: #ecf0f1; 
+    border: none;
+    /* border-radius: 5px; */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .menu_button:hover {
+    background-color: #2980b9; 
+    color: #ffffff; 
+  }
+  .inside_task_status{
+    padding: 10px;
+  }
+  .task_button {
+    display: block;
+    width: 10%;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #2c3e50;  
+    color: #ecf0f1; 
+    
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .task_button:hover {
+    background-color: #2980b9; 
+    color: #ffffff; 
+  }
+
+  .task_radio_group {
+    display: flex;
+    flex-direction: column; /* Display radio buttons from top to bottom */
+  }
+  
+  .task_radio_label {
+    margin-bottom: 5px;
+    background-color: aquamarine;
+    padding: 5px;
+  }
+  
+  .task_radio_input {
+    margin-right: 5px;
+    
+  }
+  .task_deadline {
+    font-size: 10px;
+    color: #555; 
+    float: right;
+    
+}/* task.css */
+
+.task_modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+.task_modal_p{
+ 
+    margin-bottom: 10px; /* Adjust spacing as needed */
+    display: flex;
+    align-items: center;
+  
+}
+
+.task_radio_div{
+ 
+  display: flex;
+}
+
+.task-delete-icon {
+  align-items: center;
+  font-size: 200%;
+  cursor: pointer;
+  margin-left: auto; 
+  margin-right: 10px;
+  margin-top: 20px;
+}
+
+.task_radio_label {
+  width: calc(95% - 10px); 
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+}
+
+.task_radio_input {
+  margin-right: 10px;
+}
+
+.task_deadline {
+  font-size: 12px;
+  color: #888;
+}
+
+.task_users {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.avatar-group {
+  margin-left: 10px;
+}
+.model_avathar_group {
+  display: flex;
+  align-items: center;
+}
+
+.avatar-group-container {
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+
+/* Add more styles as needed */
+
+
+.add-member-dropdown {
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+
+.task-modal-dropdown-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  width: 50%;
+  height: 50%;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1;
+  overflow: auto;
+}
+
+
+.assigned-members,
+.project-members {
+  margin-bottom: 10px;
+}
+
+.assigned-members-p,
+.project-members-p {
+  font-weight: bold;
+}
+
+.assigned-members-div,
+.project-members-div {
+  cursor: default;
+  padding: 5px;
+}
+
+.assigned-members-div:hover,
+.project-members-div:hover {
+  background-color: #eee;
+}
+
+/* Style for the remove (X) button */
+.assigned-members-span {
+  cursor: pointer;
+  margin-right: 5px;
+  color: red;
+  right: 0;
+  position: absolute;
+  right: 0;
+
+}
+.task_input_modal{
+  width: 80%;
+  
+}
+.task_div_modal{
+  width: 80%;
+ 
+}
+.task_divmain_modal{
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+.task_2div_modal{
+  width: 80%;
+ 
+}
+.task_2divmain_modal{
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+.task_cancel_fields{
+  background-color: #922724;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 10px;
+  width: 20%;
+}
+
+.task_save_fields_main_modal{
+  background-color: #3eb489;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 48%;
+  margin-right:10px;
+}
+.task_cancel_fields_main_modal{
+  background-color: #922724;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+ 
+  width: 48%;
+  margin-top: 10px;
+}
+.task_modal_edit{
+  background: none;
+  width: auto;
+  margin-right: 10px;
+  color: black;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  position: absolute;
+  right: 0;
+
+}
+
+/* YourComponent.css */
+
+.new-task {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px;
+  background: linear-gradient(to right, #3498db, #2c3e50); /* Adjust gradient colors */
+  border-radius: 50%; /* Make it round */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.new-tasklogo {
+  color: #fff;
+  font-size: 24px; /* Adjust the icon size as needed */
+}
+
+
+

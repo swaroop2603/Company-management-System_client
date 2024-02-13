@@ -7,6 +7,7 @@ import New_Company from './components/login and signup/new_company';
 import Homepage from './components/home/homepage';
 import Invitation from './components/invitation/invitation';
 import Reset from './components/password reset/reset';
+import Task from './components/Tasks/task';
 import axios from 'axios';
 import BASE_URL from './config';
 function App() {
@@ -38,6 +39,7 @@ function App() {
       <Route path='/home' element={<Homepage />} />
       <Route path="/invite" element={<Invitation />} />
       <Route path="/reset" element={<Reset />} />
+      <Route path="/tasks" element={<Task />} />
       </Routes>
       </Router>
     </div>

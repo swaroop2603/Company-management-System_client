@@ -8,9 +8,10 @@
   .message_header {
     font-size: 30px;
     font-weight: bold;
-    background-color: aliceblue;
+    background: linear-gradient(to right,#414141, #000000);
+    color: #FFFAFA;
     height: 10%;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid black;
     width: 100%;
     padding: 8px;
     display: flex;
@@ -34,17 +35,23 @@
     display: flex;
     align-items: center;
     padding: 8px;
+    background-color: #1A2421;;
     box-sizing: border-box;
   }
   
   .message_input textarea {
     height: 80%;
     width: 90%;
-    border: 1px solid #fff;
+    border: 1px solid #808080;
     border-radius: 20px;
     box-sizing: border-box;
     padding: 8px;
+ color: white;
+    background-color:#1A2421;;
     margin-right: 8px;
+  }
+  .message_input textarea::placeholder {
+    color: white;
   }
   
   .message_input button {

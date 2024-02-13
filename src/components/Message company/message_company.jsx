@@ -47,7 +47,7 @@ function MessageBar({ message: { user_ID, message, created_at }, name ,ownername
     return (
         isSentByCurrentUser ? (
           <div className="messageContainer_company justifyEnd_company">
-            <p className="sendText_company pr-10_company">{ownername}</p>
+            <p className="sendText_company pr-10_company colorWhite_company">{ownername}</p>
             <div className="messageBox_company backgroundBlue_company">
               <p className="messageText_company colorWhite_company">{message}</p>
               <p className="messageTime_company colorWhite_company">{formatTime(created_at)}</p>
@@ -59,7 +59,7 @@ function MessageBar({ message: { user_ID, message, created_at }, name ,ownername
               <p className="messageText_company colorDark_company">{message}</p>
               <p className="messageTime_company colorDark_company">{formatTime(created_at)}</p>
             </div>
-            <p className="sendText_company pl-10_company">{trimmedName}</p>
+            <p className="sendText_company pl-10_company colorWhite_company">{trimmedName}</p>
           </div>
         )
       );

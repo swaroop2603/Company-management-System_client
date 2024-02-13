@@ -13,6 +13,8 @@ import { FiEdit3 } from "react-icons/fi";
 import { FaUserPlus } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
+import { FaCaretDown } from "react-icons/fa6";
+import { FaCaretRight } from "react-icons/fa6";
 const modalStyles = {
   content: {
     width: "300px",
@@ -100,6 +102,20 @@ function Chat({user,CEO}) {
   const [showEditWidget, setShowEditWidget] = useState(false);
   const [isemployeeremovemodal,setisemployeeremovemodal]=useState(false)
   const [remveingemployeedata,setremovingemployeedata]=useState('')
+  const [companydetails,setcompanydetails]=useState('')
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/CMS/company?company_id=${user.company_id}`);
+        setcompanydetails(response.data)
+      } catch (error) {
+        console.error("Error fetching company name:", error);
+        // Handle error as needed (show a message, log, etc.)
+      }
+    };
+
+    fetchData();
+  }, [user.company_id]);
   const handleaddiconClick=()=>{
     setIsModaladd(true)
   }
@@ -146,24 +162,20 @@ function Chat({user,CEO}) {
 
   // console.log("messages_chat",messages)
   useEffect(() => {
-    // console.log("useEffect is running"); // Add this line
+    // console.log("useEffect is running"); // Add this line 
     const fetchData = async () => {
       try {
         // console.log(user.user_id)
         const response = await axios.get(`${BASE_URL}/CMS/company/employees?company_id=${user.company_id}`);
-        // console.log(response.data); // Assuming the data is in the 'data' property of the response
+        // console.log(response.data); 
         setchatmemberlist(response.data)
-        
-        
         // setchatmemberlist(userDatawithname)
-   
-
         // console.log("setchatmemberlist(userDatawithname)",chatmemberlist)
         // console.log("userdata",userData)
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
-    };
+    }; 
     const fetchChanneldata = async () => {
       try {
         // console.log(user.user_id)
@@ -222,8 +234,10 @@ function Chat({user,CEO}) {
   }
 
   
-    setSelectedUserId((prevUserId) => (prevUserId === userId ? null : userId));
-    setUserMessageWindow(!userMessageWindow);
+    setSelectedUserId((prevUserId) => (prevUserId === userId ? null: userId));
+    console.log("selected user id",selectedUserId)
+   
+    
     setChannelMessageWindow(false);
     setchatmemberlist((prevList) =>
         prevList.map((userObj) =>
@@ -234,12 +248,30 @@ function Chat({user,CEO}) {
     const messages=await fetchmessages(chat_id)
     setmessages(messages)
   };
+  useEffect(() => {
+    console.log("selected user id", selectedUserId);
+  
+    if (selectedUserId === null) {
+      setUserMessageWindow(false);
+    } else {
+      setUserMessageWindow(true);
+    }
+  }, [selectedUserId]);
+  useEffect(() => {
+    console.log("selected user id", selectedUserId);
+  
+    if (selectedchannelId === null) {
+      setChannelMessageWindow(false);
+    } else {
+      setChannelMessageWindow(true);
+    }
+  }, [selectedchannelId]);
   const handleButton_channelClick= async(channel_id) => {
     setSelectedUserId(null);
     // console.log(channel_id)
     
     setSelectedchannelId((prevchannelid) => (prevchannelid === channel_id ? null : channel_id));
-    setChannelMessageWindow(!channelMessageWindow);
+    
     setUserMessageWindow(false);
     const messages=await fetchchannelmessages(channel_id)
     setmessages(messages)
@@ -467,7 +499,7 @@ function Chat({user,CEO}) {
             <input 
               className="input_search" 
               type="text" 
-              placeholder="search" 
+              placeholder={`Search on ${companydetails.company_name}`} 
               value={searchTerm}
               onChange={(e)=>{
                 setSearchTerm(e.target.value);
@@ -475,7 +507,7 @@ function Chat({user,CEO}) {
               }}
             />
             <button className={`channel_toggle_button ${toggleButton ? "up" : "down"}`} onClick={handleToggle}>
-              {toggleButton ? "v" : ">"}Channels
+              {toggleButton ? <FaCaretDown /> : <FaCaretRight />}Channels
             </button>
             {channelToggel && (
               <div className="chats_message_div">
@@ -504,6 +536,7 @@ function Chat({user,CEO}) {
                       className="chats_message_button"
                       onClick={() => handleButtonClick(item.user_id)}
                       key={index}
+                      
                     >
                       <FaUser className="user-logo"/>
                       
@@ -590,7 +623,7 @@ function Chat({user,CEO}) {
           </button>
           <div style={{ paddingTop:'30px' }}>
             {inviteSuccess && <p style={{ color: 'green' }}>{inviteSuccessmessage}</p>}
-            <p>Enter the email ID of the person you want to invite to your company</p>
+            <p>Enter the email ID of the person you want to invite to {companydetails.company_name}</p>
             <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
               <input 
                 value={invitetext} 
@@ -613,7 +646,7 @@ function Chat({user,CEO}) {
         style={modalStyles_remove} 
       >
         <div>
-          <p>Are you sure you want to remove {remveingemployeedata.username} from the company?</p>
+          <p>Are you sure you want to remove {remveingemployeedata.username} from {companydetails.company_name}?</p>
           <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
             <button onClick={handleremoveemploeeConfirm} style={yesButtonStyle}>Yes</button>
             <button onClick={handleremoveemploeeCancel} style={noButtonStyle}>No</button>
